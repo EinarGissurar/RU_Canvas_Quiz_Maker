@@ -1,2 +1,0 @@
-Question_name;Question_text;Answer_option_1 (mandatory);Option_1_comment;Option_1_weight;Answer_option_2 (optional);Option_2_comment;Option_2_weight;Answer_option_3(optional);Option_3_comment;Option_3_weight
-Sample question;This is a sample question;Write posible correct answer here;Comment for correct answer;100;Write posible correct answer here;Comment for correct answer;100;Write posible correct answer here;Comment for correct answer;100

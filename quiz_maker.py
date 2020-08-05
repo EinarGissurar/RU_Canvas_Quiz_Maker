@@ -1,26 +1,26 @@
-# Version 1.1
+# Version 1.2
 # Author: Einar Örn Gissurarson (einarog05@ru.is)
 
 #Used in conjunction with config.txt, quiz_data.csv, and question_data.csv. Do not run without these files.
-#Usage: python quiz_reader.py quiz_data.csv question_data.csv
+#Usage: python quiz_maker.py quiz_data.csv question_data.csv
 
 #!/usr/bin/python
 import sys, os.path, csv, json, requests, itertools, collections
 
 def main():
 	if len(sys.argv) != 3:
-		sys.exit('Usage: python quiz_reader.py quiz_data.csv question_data.csv')
+		sys.exit('Usage: python quiz_maker.py you_quiz_data.csv your_question_data.csv')
 	else:
 		quiz_datafile = sys.argv[1]
 		question_datafile = sys.argv[2]
 
-	if os.path.isfile('config.csv') and os.path.isfile(quiz_datafile) and os.path.isfile(question_datafile):
+	if os.path.isfile('./Config/config.csv') and os.path.isfile(quiz_datafile) and os.path.isfile(question_datafile):
 		print('Files present, attempting validation')
 
 		#Fetch Config Data
-		with open('config.csv' , newline='', encoding='utf-8-sig') as csvconfig:
+		with open('./Config/config.csv' , newline='', encoding='utf-8-sig') as csvconfig:
 			try:
-				config_reader = csv.DictReader(csvconfig, delimiter=';')
+				config_reader = csv.DictReader(csvconfig, delimiter=',')
 				config_CSV_data = next(config_reader)
 				if config_CSV_data["User_Access_token"] == 'put access token here':
 					sys.exit('Access token missing. Please see readme on how to aquire a token and edit config.csv accordingly.')
@@ -35,7 +35,7 @@ def main():
 		#Fetch Quiz Data
 		with open(quiz_datafile , newline='', encoding='utf-8-sig') as csvquiz:
 			try:
-				quiz_reader = csv.DictReader(csvquiz, delimiter=';')
+				quiz_reader = csv.DictReader(csvquiz, delimiter=',')
 				quiz_CSV_data = next(quiz_reader)
 			except IOError:
 				sys.exit('Quiz_data read error')		
@@ -100,7 +100,7 @@ def main():
 	with open(question_datafile , newline='', encoding='utf-8-sig') as csvquestions:
 		try:
 			#Column reader used to determine maximum number of viable answers.	
-			column_reader, row_reader = itertools.tee(csv.reader(csvquestions, delimiter=';'))
+			column_reader, row_reader = itertools.tee(csv.reader(csvquestions, delimiter=','))
 			columns = len(next(column_reader))
 			del column_reader
 		except IOError:
@@ -117,16 +117,16 @@ def main():
 			question_data['question[question_name]'].append(row[0])
 			question_data['question[question_text]'].append(row[1])
 			question_data['question[quiz_group_id]'].append(group_id)
-			question_data['question[question_type]'].append('short_answer_question')
+			question_data['question[question_type]'].append(row[2])
 			question_data['question[position]'].append(question_pos)
-			question_data['question[points_possible]'].append(5.0)
+			question_data['question[points_possible]'].append(row[3])
 
 			#answer_pos used to give answers a valid position for each question.
 			answer_pos = 0
 
 			#Populate each question with valid answers. 
 			#If valid answers are fewer than maximum number of answers, columns should be blank and thus ignored.
-			iterator = range(2, columns, 3)
+			iterator = range(4, columns, 3)
 			for n in iterator:
 				if row[n] is not '':
 					question_data['question[answers]['+str(answer_pos)+'][text]'].append(row[n])
