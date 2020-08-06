@@ -16,6 +16,8 @@ In Config folder, edit the config.csv file accordingly:
 **First things first.** 
 If you are fetching this configuration from the Google Drive make sure to download the folder to your own local directory, before editing any of the sample files.
 
+Additionally, if you intend on working with the google/excel sheets to set up the quiz/questions, make sure you finsih by exporting the Data sheets as CSV.
+
 ---
 
 Quiz Maker requires two files to work. Quiz-Data.csv and Questions-Data.csv
