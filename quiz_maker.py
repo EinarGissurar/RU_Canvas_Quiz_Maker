@@ -22,15 +22,15 @@ def main():
 			try:
 				config_reader = csv.DictReader(csvconfig, delimiter=',')
 				config_CSV_data = next(config_reader)
-				if config_CSV_data["User_Access_token"] == 'put access token here':
+				if config_CSV_data["user_access_token"] == 'put access token here':
 					sys.exit('Access token missing. Please see readme on how to aquire a token and edit config.csv accordingly.')
-				if config_CSV_data["Course_ID"] == 'put course id here':
+				if config_CSV_data["course_id"] == 'put course id here':
 					sys.exit('Course ID missing. Please see readme on how to aquire a token and edit config.csv accordingly.')
 			except IOError:
 				sys.exit('Config file read error')
 		
-		headers = {'Authorization' : 'Bearer '+config_CSV_data["User_Access_token"]}
-		url = 'https://reykjavik.instructure.com//api/v1/courses/'+config_CSV_data["Course_ID"]+'/quizzes'
+		headers = {'Authorization' : 'Bearer '+config_CSV_data["user_access_token"]}
+		url = 'https://reykjavik.instructure.com//api/v1/courses/'+config_CSV_data["course_id"]+'/quizzes'
 
 		#Fetch Quiz Data
 		with open(quiz_datafile , newline='', encoding='utf-8-sig') as csvquiz:
