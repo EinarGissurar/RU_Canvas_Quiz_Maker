@@ -1,10 +1,10 @@
 # Canvas Quiz Maker For Reykjavik University
 
-Canvas Quiz reader is indented to be used for courses in University or Reykjavik, although it can be modified for use in other institutions
+Canvas Quiz reader is indended to be used for courses in University of Reykjavik, although it can be modified for use in other institutions using Canvas.
 
 ## Initial Configuration
 
-In Config folder, edit the config.csv file accordingly:
+In the Config folder, edit the config.csv file accordingly:
 
 - Under "user\_access\_token," insert your Canvas Access Token
   - [How do I get an Access token?](https://community.canvaslms.com/docs/DOC-10806-how-do-i-manage-api-access-tokens-as-an-admin)
@@ -14,9 +14,9 @@ In Config folder, edit the config.csv file accordingly:
 ## Setup
 
 **First things first.** 
-If you are fetching this configuration from the Google Drive make sure to download the folder to your own local directory, before editing any of the sample files.
+It´s important to setup a work flow to use this tool, and also to be careful when using it. Canvas is quite fragile, and does´t react well to mistakes. The best approach is to try a small quiz first, use a spreadsheet to create the quiz, and standardise question formats, and lengths, to make it easy to check for errors. 
 
-Additionally, if you intend on working with the google/excel sheets to set up the quiz/questions, make sure you finsih by exporting the Data sheets as CSV.
+If you intend on working with the google/excel sheets to set up the quiz/questions, make sure you finish by exporting the Data sheets as CSV. Be aware that you must use ";" as the delimiter beteween fields in the csv file (and not use a ";" in the quiz question itself.
 
 ---
 
