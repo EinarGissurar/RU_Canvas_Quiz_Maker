@@ -16,6 +16,8 @@ In the Config folder, edit the config.csv file accordingly:
 **First things first.** 
 It´s important to setup a work flow to use this tool, and also to be careful when using it. Canvas is quite fragile, and does´t react well to mistakes. The best approach is to try a small quiz first, use a spreadsheet to create the quiz, and standardise question formats, and lengths, to make it easy to check for errors. 
 
+If there is an error, what will typically happen is that Canvas won't let you edit the quiz that you've created. The only recourse then is to remove the quiz in Canvas, fix the bug in the spreadsheet, and reload.
+
 If you intend on working with the google/excel sheets to set up the quiz/questions, make sure you finish by exporting the Data sheets as CSV. Be aware that you must use ";" as the delimiter beteween fields in the csv file (and not use a ";" in the quiz question itself.
 
 ---
