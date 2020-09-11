@@ -35,7 +35,7 @@ def main():
 		#Fetch Quiz Data
 		with open(quiz_datafile , newline='', encoding='utf-8-sig') as csvquiz:
 			try:
-				quiz_reader = csv.DictReader(csvquiz, delimiter=',')
+				quiz_reader = csv.DictReader(csvquiz, delimiter=';')
 				quiz_CSV_data = next(quiz_reader)
 			except IOError:
 				sys.exit('Quiz_data read error')		
@@ -100,7 +100,7 @@ def main():
 	with open(question_datafile , newline='', encoding='utf-8-sig') as csvquestions:
 		try:
 			#Column reader used to determine maximum number of viable answers.	
-			column_reader, row_reader = itertools.tee(csv.reader(csvquestions, delimiter=','))
+			column_reader, row_reader = itertools.tee(csv.reader(csvquestions, delimiter=';'))
 			columns = len(next(column_reader))
 			del column_reader
 		except IOError:
@@ -128,7 +128,7 @@ def main():
 			#If valid answers are fewer than maximum number of answers, columns should be blank and thus ignored.
 			iterator = range(4, columns, 3)
 			for n in iterator:
-				if row[n] is not '':
+				if row[n] !=     '':
 					question_data['question[answers]['+str(answer_pos)+'][text]'].append(row[n])
 					question_data['question[answers]['+str(answer_pos)+'][comments]'].append(row[n+1])
 					question_data['question[answers]['+str(answer_pos)+'][comments_html]'].append('<p>'+row[n+1]+'</p>')
@@ -149,7 +149,7 @@ def main():
 			print('\n===========================================\n')
 			del question_data
 
-	print('Done. Go to https://reykjavik.instructure.com/courses/'+config_CSV_data["Course_ID"]+'/question_banks where you can assign your questions to a question bank.')
+	print('Done. Go to https://reykjavik.instructure.com/courses/'+config_CSV_data["course_id"]+'/question_banks where you can assign your questions to a question bank.')
 
 
 if __name__ == "__main__":
