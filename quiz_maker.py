@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#! /usr/bin/env python3
 # Version 1.2
 # Author: Einar Örn Gissurarson (einarog05@ru.is)
 
