@@ -1,10 +1,10 @@
+#!/usr/bin/env python3
 # Version 1.2
 # Author: Einar Örn Gissurarson (einarog05@ru.is)
 
 #Used in conjunction with config.txt, quiz_data.csv, and question_data.csv. Do not run without these files.
 #Usage: python quiz_maker.py quiz_data.csv question_data.csv
 
-#!/usr/bin/python
 import sys, os.path, csv, json, requests, itertools, collections
 
 def main():
