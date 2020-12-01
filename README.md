@@ -9,7 +9,7 @@ In the Config folder, edit the config.csv file accordingly:
 - Under "user\_access\_token," insert your Canvas Access Token
   - [How do I get an Access token?](https://community.canvaslms.com/docs/DOC-10806-how-do-i-manage-api-access-tokens-as-an-admin)
 - Under "course\_id" input the numeric ID of your course.
-  - This can be found in the course url: https\://reykjavik.instructure.com/courses/**Course_ID**
+  - This can be found in the course url: https&#65279;://reykjavik.instructure.com/courses/**Course_ID**
 
 ## Setup
 
