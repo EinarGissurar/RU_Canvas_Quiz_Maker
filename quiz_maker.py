@@ -35,7 +35,7 @@ def main():
 		#Fetch Quiz Data
 		with open(quiz_datafile , newline='', encoding='utf-8-sig') as csvquiz:
 			try:
-				quiz_reader = csv.DictReader(csvquiz, delimiter=';')
+				quiz_reader = csv.DictReader(csvquiz, delimiter=',')
 				quiz_CSV_data = next(quiz_reader)
 			except IOError:
 				sys.exit('Quiz_data read error')		
@@ -100,7 +100,7 @@ def main():
 	with open(question_datafile , newline='', encoding='utf-8-sig') as csvquestions:
 		try:
 			#Column reader used to determine maximum number of viable answers.	
-			column_reader, row_reader = itertools.tee(csv.reader(csvquestions, delimiter=';'))
+			column_reader, row_reader = itertools.tee(csv.reader(csvquestions, delimiter=','))
 			columns = len(next(column_reader))
 			del column_reader
 		except IOError:

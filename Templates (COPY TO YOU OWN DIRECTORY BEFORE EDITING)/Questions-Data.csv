@@ -1,2 +1,2 @@
-Question_name,Question_text,question_type,points_possible,Answer_option_1 (mandatory),Option_1_comment,Option_1_weight,Answer_option_2 (optional),Option_2_comment,Option_2_weight,Answer_option_3(optional),Option_3_comment,Option_3_weight
-Sample Question,This is a sample question,multiple_answers_question,10,Option 1,Correct answer,100,Option 2,Partially Correct answer,50,Option 3,Partially Correct answer,25
+"Question_name","Question_text","question_type","points_possible","Answer_option_1 (mandatory)","Option_1_comment","Option_1_weight","Answer_option_2 (optional)","Option_2_comment","Option_2_weight","Answer_option_3(optional)","Option_3_comment","Option_3_weight"
+"Sample Question","This is a sample question","multiple_answers_question","10","Option 1","Correct answer","100","Option 2","Partially Correct answer","50","Option 3",""Partially Correct answer","25"
